@@ -42,6 +42,17 @@ func fetch(c *fiber.Ctx) error {
 func main() {
 	app := fiber.New()
 
+	// configure cors
+	app.Use(func(c *fiber.Ctx) error {
+		c.Set("Access-Control-Allow-Origin", "*")
+		c.Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		c.Set("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization, Token")
+		if c.Method() == "OPTIONS" {
+			return c.SendStatus(200)
+		}
+		return c.Next()
+	})
+
 	app.Get("/", index)
 	app.Get("/ping", ping)
 	app.Get("/fetch/:domain", fetch)
