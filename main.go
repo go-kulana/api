@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/base64"
 	"github.com/go-kulana/core"
 	"github.com/gofiber/fiber/v2"
 	"net/url"
@@ -21,8 +22,11 @@ func ping(c *fiber.Ctx) error {
 func fetch(c *fiber.Ctx) error {
 	domain := c.Params("domain")
 
+	// base64 decode domain
+	base64DecodedDomain, err := base64.StdEncoding.DecodeString(domain)
+
 	// decode domain
-	decodedDomain, err := url.QueryUnescape(domain)
+	decodedDomain, err := url.QueryUnescape(string(base64DecodedDomain))
 	if err != nil {
 		return c.JSON(fiber.Map{
 			"error": err.Error(),

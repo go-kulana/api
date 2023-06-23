@@ -14,7 +14,15 @@ Returns a simple pong message. This endpoint is used to check if the server is u
 
 Returns a JSON object containing information about the given domain.
 
-> :warning: **The domain needs to be URL encoded.**
+> :warning: **The domain needs to be URL encoded AND base64 decoded.**
+> 
+> Be aware, that the domain will be decoded in exactly this order:
+> 1. Base64 decode
+> 2. URL decode
+> 
+> So you NEED to encode the domain in exactly this order:
+> 1. URL encode
+> 2. Base64 encode
 
 Sample response:
 ```json
