@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/boatware/domainer v1.0.2 // indirect
-	github.com/go-kulana/core v0.0.0-20230317193442-2599ee543583 // indirect
+	github.com/go-kulana/core v0.0.0-20230624201048-357d3945663a // indirect
 	github.com/gofiber/fiber/v2 v2.47.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/klauspost/compress v1.16.3 // indirect
@@ -20,6 +20,6 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.47.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
-	golang.org/x/net v0.8.0 // indirect
+	golang.org/x/net v0.11.0 // indirect
 	golang.org/x/sys v0.9.0 // indirect
 )
